@@ -1,0 +1,56 @@
+body {
+  background-color: #333;
+  color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  text-align: center;
+}
+.btn {
+  padding: 20px;
+  background-color: #3a3ae6;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#generate-button:hover {
+  background-color: #2a2adc;
+}
+.quote {
+  font-style: italic;
+}
+.author {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.quote::before,
+.quote::after {
+  content: '"';
+}
+.favorites-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.favorite-card {
+  margin: 10px;
+  padding: 20px;
+  width: 250px;
+  color: #000;
+  background-color: #f9f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.author {
+  font-style: italic;
+}
+
+.star-icon {
+  font-size: 30px;
+  vertical-align: middle;
+  color: yellow;
+  cursor: pointer;
+}
