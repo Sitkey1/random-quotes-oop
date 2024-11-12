@@ -19,20 +19,22 @@ class RandomQuotesApp {
     this.displayCurrentQuote();
   }
 
-  getRandomQuote() {
+  randomQuoteHandler() {
     this.changeCurrentQuote(RandomQuote.getRandomQuote());
   }
 
-  async getRandomQuoteViaAPI() {
+  async randomQuoteViaAPIHandler() {
     // RandomQuote.getRandomQuoteViaAPI() - возвращает промис
     const quoteViaApi = await RandomQuote.getRandomQuoteViaAPI();
     this.changeCurrentQuote(quoteViaApi);
   }
 
   init() {
-    this.randomQuoteBtn.addEventListener("click", () => this.getRandomQuote());
+    this.randomQuoteBtn.addEventListener("click", () =>
+      this.randomQuoteHandler()
+    );
     this.randomQuoteApiBtn.addEventListener("click", () =>
-      this.getRandomQuoteViaAPI()
+      this.randomQuoteViaAPIHandler()
     );
   }
 }
