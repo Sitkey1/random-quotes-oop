@@ -23,11 +23,10 @@ class RandomQuotesApp {
     this.changeCurrentQuote(RandomQuote.getRandomQuote());
   }
 
-  getRandomQuoteViaAPI() {
-    // RandomQuote.getRandomQuoteViaAPI() - возвращает промис.  .then() - обрабатываем промис
-    RandomQuote.getRandomQuoteViaAPI().then((quote) =>
-      this.changeCurrentQuote(quote)
-    );
+  async getRandomQuoteViaAPI() {
+    // RandomQuote.getRandomQuoteViaAPI() - возвращает промис
+    const quoteViaApi = await RandomQuote.getRandomQuoteViaAPI();
+    this.changeCurrentQuote(quoteViaApi);
   }
 
   init() {

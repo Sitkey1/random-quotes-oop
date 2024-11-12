@@ -9,15 +9,18 @@ class RandomQuote {
 
     return new Quote(id, text, author);
   }
-
-  static getRandomQuoteViaAPI() {
+  // Любая асинхронная функция возвращает промис
+  static async getRandomQuoteViaAPI() {
     const url = "http://api.quotable.io/random";
     const options = { headers: { "Content-Type": "application/json" } };
 
-    return fetch(url, options)
-      .then((response) => response.json())
-      .then(({ _id, content, author }) => new Quote(_id, content, author))
-      .catch((error) => console.error(error));
+    try {
+      const response = await fetch(url, options);
+      const { _id, content, author } = await response.json();
+      return new Quote(_id, content, author);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
 
