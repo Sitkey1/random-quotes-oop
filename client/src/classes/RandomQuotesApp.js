@@ -1,4 +1,4 @@
-import RandomQuote from "../classes/RandomQuote.js";
+import RandomQuote from "./RandomQuote.js";
 
 class RandomQuotesApp {
   constructor() {
