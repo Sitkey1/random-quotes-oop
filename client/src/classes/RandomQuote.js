@@ -10,7 +10,7 @@ class RandomQuote {
     return new Quote(id, text, author);
   }
   // Любая асинхронная функция возвращает промис
-  static async getRandomQuoteViaAPI() {
+  static async getRandomQuoteViaPublicAPI() {
     const url = "http://api.quotable.io/quotes/random";
     const options = { headers: { "Content-Type": "application/json" } };
 
@@ -22,10 +22,23 @@ class RandomQuote {
         const quote = quotes[0];
         const { _id, content, author } = quote;
 
-        if (_id && content &&  author) {
+        if (_id && content && author) {
           return new Quote(_id, content, author);
         }
       }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  static async getRandomQuoteViaOwnAPI() {
+    const url = "http://localhost:3000/quotes/random-single";
+    const options = { headers: { "Content-Type": "application/json" } };
+
+    try {
+      const response = await fetch(url, options);
+      const quote = await response.json();
+      const { id, text, author } = quote;
+      return new Quote(id, text, author);
     } catch (error) {
       console.error(error);
     }
