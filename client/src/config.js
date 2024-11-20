@@ -1,6 +1,6 @@
 const config = {
   PUBLIC_API_URL: "https://api.quotable.io",
-  API_URL: "http://localhost:3000",
+  API_URL: "https://random-quotes-oop-ueiv.onrender.com",
 };
 
 export default config;
